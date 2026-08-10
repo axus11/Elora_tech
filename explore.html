@@ -1,0 +1,3132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ELORA Tech | Explore Solutions</title>
+
+    <meta name="description"
+        content="Explore ELORA Tech's intelligent technology solutions for businesses, organizations and global challenges.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Three.js -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+        }
+    }
+    </script>
+
+
+    <style>
+
+        /* =========================================
+           GLOBAL
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #020617;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =========================================
+           BACKGROUND
+        ========================================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -10;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(14, 165, 233, 0.10),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 85% 70%,
+                    rgba(37, 99, 235, 0.10),
+                    transparent 30%
+                ),
+                #020617;
+        }
+
+
+        .grid {
+            position: absolute;
+
+            width: 200%;
+            height: 200%;
+
+            left: -50%;
+            top: -50%;
+
+            background-image:
+                linear-gradient(
+                    rgba(56, 189, 248, 0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(56, 189, 248, 0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 70px 70px;
+
+            transform:
+                perspective(700px)
+                rotateX(55deg);
+
+            animation:
+                gridMove 20s linear infinite;
+        }
+
+
+        @keyframes gridMove {
+
+            from {
+                transform:
+                    perspective(700px)
+                    rotateX(55deg)
+                    translateY(0);
+            }
+
+            to {
+                transform:
+                    perspective(700px)
+                    rotateX(55deg)
+                    translateY(70px);
+            }
+
+        }
+
+
+        .orb {
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(100px);
+
+            pointer-events: none;
+        }
+
+
+        .orb.one {
+
+            width: 450px;
+            height: 450px;
+
+            background:
+                rgba(14, 165, 233, 0.08);
+
+            top: -200px;
+            left: -150px;
+
+            animation:
+                orbOne 12s ease-in-out infinite alternate;
+        }
+
+
+        .orb.two {
+
+            width: 550px;
+            height: 550px;
+
+            background:
+                rgba(37, 99, 235, 0.07);
+
+            right: -250px;
+            bottom: -250px;
+
+            animation:
+                orbTwo 15s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes orbOne {
+
+            to {
+                transform:
+                    translate(200px, 160px);
+            }
+
+        }
+
+
+        @keyframes orbTwo {
+
+            to {
+                transform:
+                    translate(-150px, -150px);
+            }
+
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        nav {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding:
+                25px 6%;
+
+            background:
+                linear-gradient(
+                    rgba(2, 6, 23, 0.88),
+                    rgba(2, 6, 23, 0.55)
+                );
+
+            backdrop-filter:
+                blur(20px);
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.04);
+
+            transition: .3s;
+        }
+
+
+        nav.scrolled {
+
+            padding-top: 17px;
+            padding-bottom: 17px;
+
+            background:
+                rgba(2,6,23,.92);
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.25);
+        }
+
+
+        /* LOGO */
+
+        .logo {
+
+            font-size: 24px;
+
+            font-weight: 800;
+
+            letter-spacing: 6px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #7dd3fc,
+                    #38bdf8
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+
+        /* NAV LINKS */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 35px;
+
+            list-style: none;
+        }
+
+
+        .nav-links a {
+
+            position: relative;
+
+            color: #94a3b8;
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            transition: .3s;
+        }
+
+
+        .nav-links a:hover,
+        .nav-links a.active {
+
+            color: #ffffff;
+        }
+
+
+        .nav-links a::after {
+
+            content: "";
+
+            position: absolute;
+
+            bottom: -8px;
+            left: 0;
+
+            width: 0;
+            height: 2px;
+
+            background: #38bdf8;
+
+            box-shadow:
+                0 0 10px #38bdf8;
+
+            transition: .3s;
+        }
+
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+
+            width: 100%;
+        }
+
+
+        /* NAV BUTTON */
+
+        .nav-button {
+
+            padding:
+                11px 20px;
+
+            border-radius: 50px;
+
+            background: #ffffff;
+
+            color: #020617;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+
+        .nav-button:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 10px 30px
+                rgba(56,189,248,.2);
+        }
+
+
+        /* MOBILE MENU BUTTON */
+
+        .menu-btn {
+
+            display: none;
+
+            width: 44px;
+            height: 44px;
+
+            border: 1px solid
+                rgba(255,255,255,.08);
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,.04);
+
+            color: #ffffff;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            align-items: center;
+            justify-content: center;
+
+            transition: .3s;
+        }
+
+
+        .menu-btn:hover {
+
+            border-color:
+                rgba(56,189,248,.4);
+
+            color: #38bdf8;
+        }
+
+
+        /* =========================================
+           MOBILE NAVIGATION
+        ========================================= */
+
+        @media(max-width:900px) {
+
+            .nav-links {
+
+                position: absolute;
+
+                top: calc(100% + 10px);
+
+                left: 5%;
+
+                width: 90%;
+
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: center;
+
+                gap: 0;
+
+                padding: 15px;
+
+                border-radius: 22px;
+
+                background:
+                    rgba(2,6,23,.96);
+
+                backdrop-filter:
+                    blur(25px);
+
+                border:
+                    1px solid
+                    rgba(255,255,255,.08);
+
+                box-shadow:
+                    0 25px 70px
+                    rgba(0,0,0,.45);
+
+                opacity: 0;
+
+                visibility: hidden;
+
+                transform:
+                    translateY(-15px);
+
+                transition:
+                    .35s ease;
+            }
+
+
+            .nav-links.mobile-active {
+
+                opacity: 1;
+
+                visibility: visible;
+
+                transform:
+                    translateY(0);
+            }
+
+
+            .nav-links a {
+
+                width: 100%;
+
+                text-align: center;
+
+                padding: 15px;
+
+                border-radius: 12px;
+            }
+
+
+            .nav-links a:hover {
+
+                background:
+                    rgba(56,189,248,.06);
+            }
+
+
+            .nav-links a::after {
+
+                display: none;
+            }
+
+
+            .nav-button {
+
+                display: none;
+            }
+
+
+            .menu-btn {
+
+                display: flex;
+            }
+
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            flex-direction: row;
+
+            align-items: center;
+
+            justify-content:
+                space-between;
+
+            gap: 50px;
+
+            padding:
+                150px 7%
+                80px;
+        }
+
+
+        .hero-content {
+
+            width: 52%;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+
+        .eyebrow {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding:
+                9px 18px;
+
+            border:
+                1px solid
+                rgba(56,189,248,.18);
+
+            border-radius: 50px;
+
+            background:
+                rgba(56,189,248,.04);
+
+            color: #7dd3fc;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 28px;
+        }
+
+
+        .eyebrow-dot {
+
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: #38bdf8;
+
+            box-shadow:
+                0 0 12px #38bdf8;
+
+            animation:
+                statusPulse 2s infinite;
+        }
+
+
+        @keyframes statusPulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: .3;
+            }
+
+        }
+
+
+        .hero h1 {
+
+            max-width: 1000px;
+
+            font-size:
+                clamp(
+                    55px,
+                    7vw,
+                    100px
+                );
+
+            line-height: .95;
+
+            letter-spacing: -5px;
+
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #ffffff,
+                    #bae6fd 45%,
+                    #38bdf8 75%,
+                    #0284c7
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+
+        .hero p {
+
+            max-width: 700px;
+
+            margin-top: 30px;
+
+            color: #94a3b8;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+        }
+
+
+        .hero p strong {
+
+            color: #e2e8f0;
+        }
+
+
+        /* HERO BUTTON */
+
+        .hero-button {
+
+            display: inline-block;
+
+            margin-top: 35px;
+
+            padding:
+                15px 27px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #ffffff,
+                    #bae6fd
+                );
+
+            color: #020617;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            transition: .35s;
+        }
+
+
+        .hero-button:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 15px 45px
+                rgba(56,189,248,.25);
+        }
+
+
+        /* =========================================
+           SCROLL INDICATOR
+        ========================================= */
+
+        .scroll {
+
+            margin-top: 45px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            color: #475569;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        .scroll-line {
+
+            width: 1px;
+
+            height: 45px;
+
+            background:
+                linear-gradient(
+                    #38bdf8,
+                    transparent
+                );
+
+            animation:
+                scrollLine 2s infinite;
+        }
+
+
+        @keyframes scrollLine {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-10px);
+            }
+
+            50% {
+
+                opacity: 1;
+            }
+
+            100% {
+
+                opacity: 0;
+
+                transform:
+                    translateY(10px);
+            }
+
+        }
+
+
+        /* =========================================
+           3D GLOBE
+        ========================================= */
+
+        .globe-wrapper {
+
+            position: relative;
+
+            width: 48%;
+
+            height: 600px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            z-index: 2;
+        }
+
+
+        #elora-globe {
+
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            cursor: grab;
+        }
+
+
+        #elora-globe:active {
+
+            cursor: grabbing;
+        }
+
+
+        .globe-glow {
+
+            position: absolute;
+
+            width: 430px;
+            height: 430px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(56,189,248,.14),
+                    rgba(14,165,233,.06) 40%,
+                    transparent 72%
+                );
+
+            filter:
+                blur(35px);
+
+            pointer-events: none;
+
+            animation:
+                globePulse 5s
+                ease-in-out
+                infinite;
+        }
+
+
+        @keyframes globePulse {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(1);
+
+                opacity: .65;
+            }
+
+            50% {
+
+                transform:
+                    scale(1.12);
+
+                opacity: 1;
+            }
+
+        }
+
+
+        .globe-label {
+
+            position: absolute;
+
+            bottom: 35px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding:
+                9px 16px;
+
+            border-radius: 50px;
+
+            background:
+                rgba(2,6,23,.65);
+
+            border:
+                1px solid
+                rgba(56,189,248,.15);
+
+            backdrop-filter:
+                blur(15px);
+
+            color: #64748b;
+
+            font-size: 8px;
+
+            font-weight: 600;
+
+            letter-spacing: 2px;
+
+            white-space: nowrap;
+
+            pointer-events: none;
+        }
+
+
+        .globe-label span {
+
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: #38bdf8;
+
+            box-shadow:
+                0 0 12px #38bdf8;
+        }
+
+
+        /* =========================================
+           SOLUTIONS
+        ========================================= */
+
+        .solutions {
+
+            width: 90%;
+
+            max-width: 1250px;
+
+            margin:
+                0 auto
+                140px;
+        }
+
+
+        .section-heading {
+
+            margin-bottom: 45px;
+        }
+
+
+        .section-heading span {
+
+            color: #38bdf8;
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+        }
+
+
+        .section-heading h2 {
+
+            margin-top: 15px;
+
+            font-size:
+                clamp(
+                    32px,
+                    5vw,
+                    55px
+                );
+
+            letter-spacing: -2px;
+
+            font-weight: 750;
+        }
+
+
+        .section-heading p {
+
+            max-width: 600px;
+
+            margin-top: 15px;
+
+            color: #64748b;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           SOLUTION GRID
+        ========================================= */
+
+        .solution-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .solution-card {
+
+            position: relative;
+
+            min-height: 330px;
+
+            padding: 35px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.055),
+                    rgba(255,255,255,.015)
+                );
+
+            backdrop-filter:
+                blur(20px);
+
+            overflow: hidden;
+
+            transition:
+                transform .45s,
+                border-color .45s,
+                box-shadow .45s;
+        }
+
+
+        .solution-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            top: -150px;
+            right: -150px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(56,189,248,.18),
+                    transparent 70%
+                );
+
+            transition: .5s;
+        }
+
+
+        .solution-card:hover {
+
+            transform:
+                translateY(-10px);
+
+            border-color:
+                rgba(56,189,248,.25);
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,.3),
+
+                0 0 50px
+                rgba(56,189,248,.04);
+        }
+
+
+        .solution-card:hover::before {
+
+            transform:
+                scale(1.8);
+        }
+
+
+        .number {
+
+            color: #334155;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+        }
+
+
+        .icon {
+
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin:
+                30px 0 25px;
+
+            border-radius: 16px;
+
+            border:
+                1px solid
+                rgba(56,189,248,.15);
+
+            background:
+                rgba(56,189,248,.06);
+
+            color: #38bdf8;
+
+            font-size: 25px;
+
+            box-shadow:
+                inset 0 0 25px
+                rgba(56,189,248,.04);
+        }
+
+
+        .solution-card h3 {
+
+            font-size: 22px;
+
+            margin-bottom: 12px;
+
+            letter-spacing: -.5px;
+        }
+
+
+        .solution-card p {
+
+            color: #64748b;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        .learn {
+
+            position: absolute;
+
+            bottom: 30px;
+            left: 35px;
+
+            color: #38bdf8;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+
+        .solution-card:hover .learn {
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================================
+           FEATURED SOLUTION
+        ========================================= */
+
+        .featured {
+
+            width: 90%;
+
+            max-width: 1250px;
+
+            margin:
+                0 auto
+                140px;
+
+            position: relative;
+
+            padding: 70px;
+
+            border-radius: 30px;
+
+            border:
+                1px solid
+                rgba(56,189,248,.12);
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(56,189,248,.10),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.06),
+                    rgba(255,255,255,.015)
+                );
+
+            overflow: hidden;
+        }
+
+
+        .featured::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 400px;
+            height: 400px;
+
+            right: -200px;
+            bottom: -250px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(14,165,233,.16),
+                    transparent 70%
+                );
+
+            filter:
+                blur(20px);
+        }
+
+
+        .featured-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 700px;
+        }
+
+
+        .featured-label {
+
+            color: #38bdf8;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+        }
+
+
+        .featured h2 {
+
+            margin-top: 18px;
+
+            font-size:
+                clamp(
+                    35px,
+                    5vw,
+                    65px
+                );
+
+            line-height: 1;
+
+            letter-spacing: -3px;
+        }
+
+
+        .featured p {
+
+            margin-top: 22px;
+
+            color: #94a3b8;
+
+            line-height: 1.8;
+
+            max-width: 600px;
+        }
+
+
+        .featured-button {
+
+            display: inline-block;
+
+            margin-top: 35px;
+
+            padding:
+                14px 25px;
+
+            border-radius: 50px;
+
+            background: #ffffff;
+
+            color: #020617;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+
+        .featured-button:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 15px 40px
+                rgba(56,189,248,.2);
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .cta-section {
+
+            text-align: center;
+
+            padding:
+                120px 20px
+                160px;
+        }
+
+
+        .cta-section h2 {
+
+            font-size:
+                clamp(
+                    40px,
+                    6vw,
+                    75px
+                );
+
+            letter-spacing: -4px;
+        }
+
+
+        .cta-section p {
+
+            margin:
+                25px auto;
+
+            max-width: 600px;
+
+            color: #64748b;
+
+            line-height: 1.8;
+        }
+
+
+        .cta-button {
+
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding:
+                16px 30px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #ffffff,
+                    #bae6fd
+                );
+
+            color: #020617;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+
+        .cta-button:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 20px 50px
+                rgba(56,189,248,.18);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            border-top:
+                1px solid
+                rgba(255,255,255,.05);
+
+            padding:
+                30px 6%;
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            color: #475569;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+        }
+
+
+        footer strong {
+
+            color: #38bdf8;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media(max-width:1100px) {
+
+            .hero {
+
+                gap: 20px;
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    clamp(
+                        50px,
+                        7vw,
+                        75px
+                    );
+            }
+
+
+            .globe-wrapper {
+
+                height: 520px;
+            }
+
+
+            .solution-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media(max-width:900px) {
+
+            .hero {
+
+                min-height: auto;
+
+                flex-direction:
+                    column;
+
+                text-align: center;
+
+                padding:
+                    150px 25px
+                    80px;
+            }
+
+
+            .hero-content {
+
+                width: 100%;
+
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: center;
+            }
+
+
+            .hero p {
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .scroll {
+
+                align-items: center;
+            }
+
+
+            .globe-wrapper {
+
+                width: 100%;
+
+                height: 520px;
+
+                margin-top: -30px;
+            }
+
+
+            .featured {
+
+                padding: 45px;
+            }
+
+        }
+
+
+        @media(max-width:600px) {
+
+            nav {
+
+                padding:
+                    20px 25px;
+            }
+
+
+            .logo {
+
+                font-size: 21px;
+
+                letter-spacing: 5px;
+            }
+
+
+            .hero {
+
+                padding:
+                    130px 20px
+                    60px;
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    clamp(
+                        44px,
+                        13vw,
+                        65px
+                    );
+
+                letter-spacing:
+                    -3px;
+            }
+
+
+            .hero p {
+
+                font-size: 15px;
+
+                line-height: 1.75;
+            }
+
+
+            .hero-button {
+
+                padding:
+                    14px 24px;
+            }
+
+
+            .globe-wrapper {
+
+                height: 390px;
+
+                margin-top: -5px;
+            }
+
+
+            .globe-glow {
+
+                width: 280px;
+                height: 280px;
+            }
+
+
+            .globe-label {
+
+                bottom: 15px;
+
+                font-size: 7px;
+
+                letter-spacing:
+                    1.5px;
+            }
+
+
+            .solution-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .solution-card {
+
+                min-height: 300px;
+            }
+
+
+            .solutions {
+
+                margin-bottom:
+                    90px;
+            }
+
+
+            .featured {
+
+                padding:
+                    40px 25px;
+
+                width: 90%;
+            }
+
+
+            .featured h2 {
+
+                font-size:
+                    42px;
+
+                letter-spacing:
+                    -2px;
+            }
+
+
+            .cta-section {
+
+                padding:
+                    80px 20px
+                    120px;
+            }
+
+
+            .cta-section h2 {
+
+                letter-spacing:
+                    -3px;
+            }
+
+
+            footer {
+
+                flex-direction:
+                    column;
+
+                gap: 12px;
+
+                text-align: center;
+
+                line-height: 1.7;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         BACKGROUND
+    ========================================= -->
+
+    <div class="background">
+
+        <div class="grid"></div>
+
+        <div class="orb one"></div>
+
+        <div class="orb two"></div>
+
+    </div>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
+
+    <nav id="navbar">
+
+        <a href="index.html"
+           class="logo">
+
+            ELORA
+
+        </a>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="solutions.html"
+                   class="active">
+                    Solutions
+                </a>
+            </li>
+
+            <li>
+                <a href="projects.html">
+                    Projects
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="staff.html">
+                    Staff
+                </a>
+            </li>
+
+        </ul>
+
+
+        <a href="contact.html"
+           class="nav-button">
+
+            Work With Us
+
+        </a>
+
+
+        <button
+            class="menu-btn"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+
+            <i class="fas fa-bars"></i>
+
+        </button>
+
+    </nav>
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+
+                <span class="eyebrow-dot"></span>
+
+                ELORA SOLUTIONS
+
+            </div>
+
+
+            <h1>
+
+                Intelligence<br>
+
+                Built For Impact.
+
+            </h1>
+
+
+            <p>
+
+                We design intelligent systems that transform complex
+                challenges into
+                <strong>
+                    powerful, scalable solutions
+                </strong>
+                for organizations ready to build the future.
+
+            </p>
+
+
+            <a href="#solutions"
+               class="hero-button">
+
+                Explore Solutions →
+
+            </a>
+
+
+            <div class="scroll">
+
+                Explore Solutions
+
+                <div class="scroll-line"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             3D GLOBE
+        ===================================== -->
+
+        <div class="globe-wrapper">
+
+            <div class="globe-glow"></div>
+
+            <canvas id="elora-globe"></canvas>
+
+            <div class="globe-label">
+
+                <span></span>
+
+                GLOBAL INTELLIGENCE NETWORK
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         SOLUTIONS
+    ========================================= -->
+
+    <section
+        class="solutions"
+        id="solutions">
+
+        <div class="section-heading">
+
+            <span>
+                What We Build
+            </span>
+
+            <h2>
+                Solutions for the<br>
+                real world.
+            </h2>
+
+            <p>
+
+                From artificial intelligence to intelligent automation,
+                ELORA combines technology, engineering and strategic
+                thinking to solve meaningful problems.
+
+            </p>
+
+        </div>
+
+
+        <div class="solution-grid">
+
+
+            <article class="solution-card">
+
+                <div class="number">
+                    01 / AI
+                </div>
+
+                <div class="icon">
+                    ◈
+                </div>
+
+                <h3>
+                    Artificial Intelligence
+                </h3>
+
+                <p>
+
+                    Intelligent systems designed to analyze information,
+                    understand complex patterns and make better decisions.
+
+                </p>
+
+                <a href="contact.html"
+                   class="learn">
+
+                    Explore →
+
+                </a>
+
+            </article>
+
+
+            <article class="solution-card">
+
+                <div class="number">
+                    02 / DATA
+                </div>
+
+                <div class="icon">
+                    ◌
+                </div>
+
+                <h3>
+                    Data Intelligence
+                </h3>
+
+                <p>
+
+                    Turn raw information into actionable insights through
+                    analytics, visualization and intelligent data systems.
+
+                </p>
+
+                <a href="contact.html"
+                   class="learn">
+
+                    Explore →
+
+                </a>
+
+            </article>
+
+
+            <article class="solution-card">
+
+                <div class="number">
+                    03 / AUTOMATION
+                </div>
+
+                <div class="icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Intelligent Automation
+                </h3>
+
+                <p>
+
+                    Automate repetitive processes and build systems that
+                    work faster, smarter and more efficiently.
+
+                </p>
+
+                <a href="contact.html"
+                   class="learn">
+
+                    Explore →
+
+                </a>
+
+            </article>
+
+
+            <article class="solution-card">
+
+                <div class="number">
+                    04 / SOFTWARE
+                </div>
+
+                <div class="icon">
+                    &lt;/&gt;
+                </div>
+
+                <h3>
+                    Software Engineering
+                </h3>
+
+                <p>
+
+                    Scalable digital platforms and custom software
+                    engineered around the unique needs of your organization.
+
+                </p>
+
+                <a href="contact.html"
+                   class="learn">
+
+                    Explore →
+
+                </a>
+
+            </article>
+
+
+            <article class="solution-card">
+
+                <div class="number">
+                    05 / ROBOTICS
+                </div>
+
+                <div class="icon">
+                    ⬡
+                </div>
+
+                <h3>
+                    Robotics & IoT
+                </h3>
+
+                <p>
+
+                    Connected intelligent machines that sense, respond and
+                    interact with the physical world.
+
+                </p>
+
+                <a href="contact.html"
+                   class="learn">
+
+                    Explore →
+
+                </a>
+
+            </article>
+
+
+            <article class="solution-card">
+
+                <div class="number">
+                    06 / STRATEGY
+                </div>
+
+                <div class="icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Digital Strategy
+                </h3>
+
+                <p>
+
+                    Technology roadmaps and strategic solutions that help
+                    organizations move confidently into the future.
+
+                </p>
+
+                <a href="contact.html"
+                   class="learn">
+
+                    Explore →
+
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FEATURED
+    ========================================= -->
+
+    <section class="featured">
+
+        <div class="featured-content">
+
+            <div class="featured-label">
+                ELORA CORE
+            </div>
+
+            <h2>
+                Where logic becomes intelligence.
+            </h2>
+
+            <p>
+
+                ELORA's approach combines logical architecture,
+                artificial intelligence and human-centered design
+                to create systems that are not only powerful,
+                but meaningful.
+
+            </p>
+
+            <a href="contact.html"
+               class="featured-button">
+
+                Start a Conversation →
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CTA
+    ========================================= -->
+
+    <section class="cta-section">
+
+        <h2>
+
+            Let's build<br>
+
+            what's next.
+
+        </h2>
+
+
+        <p>
+
+            Have a challenge worth solving?
+            Let's explore how technology can turn
+            your idea into something real.
+
+        </p>
+
+
+        <a href="contact.html"
+           class="cta-button">
+
+            Talk To ELORA
+
+        </a>
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div>
+
+            © 2026 ELORA TECH
+
+        </div>
+
+
+        <div>
+
+            <strong>
+
+                LOGICAL ARCHITECTURE FOR GLOBAL SOLUTIONS
+
+            </strong>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        /* =========================================
+           MOBILE NAVIGATION
+        ========================================= */
+
+        const menuBtn =
+            document.querySelector(".menu-btn");
+
+        const navLinks =
+            document.querySelector(".nav-links");
+
+
+        if (menuBtn && navLinks) {
+
+            menuBtn.addEventListener(
+                "click",
+                function (event) {
+
+                    event.stopPropagation();
+
+                    const isOpen =
+                        navLinks.classList.toggle(
+                            "mobile-active"
+                        );
+
+                    menuBtn.setAttribute(
+                        "aria-expanded",
+                        isOpen
+                    );
+
+
+                    const icon =
+                        menuBtn.querySelector("i");
+
+
+                    if (icon) {
+
+                        icon.classList.toggle(
+                            "fa-bars",
+                            !isOpen
+                        );
+
+                        icon.classList.toggle(
+                            "fa-xmark",
+                            isOpen
+                        );
+
+                    }
+
+                }
+            );
+
+
+            navLinks
+                .querySelectorAll("a")
+                .forEach(link => {
+
+                    link.addEventListener(
+                        "click",
+                        () => {
+
+                            navLinks.classList.remove(
+                                "mobile-active"
+                            );
+
+                            menuBtn.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+
+                            const icon =
+                                menuBtn.querySelector("i");
+
+
+                            if (icon) {
+
+                                icon.classList.remove(
+                                    "fa-xmark"
+                                );
+
+                                icon.classList.add(
+                                    "fa-bars"
+                                );
+
+                            }
+
+                        }
+                    );
+
+                });
+
+
+            document.addEventListener(
+                "click",
+                event => {
+
+                    if (
+
+                        navLinks.classList.contains(
+                            "mobile-active"
+                        )
+
+                        &&
+
+                        !navLinks.contains(
+                            event.target
+                        )
+
+                        &&
+
+                        !menuBtn.contains(
+                            event.target
+                        )
+
+                    ) {
+
+                        navLinks.classList.remove(
+                            "mobile-active"
+                        );
+
+                        menuBtn.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+
+                        const icon =
+                            menuBtn.querySelector("i");
+
+
+                        if (icon) {
+
+                            icon.classList.remove(
+                                "fa-xmark"
+                            );
+
+                            icon.classList.add(
+                                "fa-bars"
+                            );
+
+                        }
+
+                    }
+
+                }
+            );
+
+
+            menuBtn.addEventListener(
+                "keydown",
+                event => {
+
+                    if (
+                        event.key === "Enter"
+                        ||
+                        event.key === " "
+                    ) {
+
+                        event.preventDefault();
+
+                        menuBtn.click();
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* =========================================
+           CLOSE MENU ON RESIZE
+        ========================================= */
+
+        window.addEventListener(
+            "resize",
+            () => {
+
+                if (
+                    window.innerWidth > 900
+                ) {
+
+                    navLinks.classList.remove(
+                        "mobile-active"
+                    );
+
+                    menuBtn.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+
+                    const icon =
+                        menuBtn.querySelector("i");
+
+
+                    if (icon) {
+
+                        icon.classList.remove(
+                            "fa-xmark"
+                        );
+
+                        icon.classList.add(
+                            "fa-bars"
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+
+        /* =========================================
+           NAVBAR SCROLL
+        ========================================= */
+
+        const navbar =
+            document.getElementById("navbar");
+
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if (!navbar)
+                    return;
+
+
+                if (window.scrollY > 50) {
+
+                    navbar.classList.add(
+                        "scrolled"
+                    );
+
+                } else {
+
+                    navbar.classList.remove(
+                        "scrolled"
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+
+    <!-- =========================================
+         THREE.JS GLOBE
+    ========================================= -->
+
+    <script type="module">
+
+        import * as THREE
+            from "three";
+
+
+        const canvas =
+            document.getElementById(
+                "elora-globe"
+            );
+
+
+        const wrapper =
+            document.querySelector(
+                ".globe-wrapper"
+            );
+
+
+        if (canvas && wrapper) {
+
+
+            /* =====================================
+               SCENE
+            ===================================== */
+
+            const scene =
+                new THREE.Scene();
+
+
+            /* =====================================
+               CAMERA
+            ===================================== */
+
+            const camera =
+                new THREE.PerspectiveCamera(
+
+                    45,
+
+                    wrapper.clientWidth /
+                    wrapper.clientHeight,
+
+                    0.1,
+
+                    100
+
+                );
+
+
+            camera.position.z = 4.3;
+
+
+            /* =====================================
+               RENDERER
+            ===================================== */
+
+            const renderer =
+                new THREE.WebGLRenderer({
+
+                    canvas: canvas,
+
+                    alpha: true,
+
+                    antialias: true
+
+                });
+
+
+            renderer.setPixelRatio(
+
+                Math.min(
+                    window.devicePixelRatio,
+                    2
+                )
+
+            );
+
+
+            renderer.setSize(
+
+                wrapper.clientWidth,
+
+                wrapper.clientHeight
+
+            );
+
+
+            /* =====================================
+               GLOBE GROUP
+            ===================================== */
+
+            const globe =
+                new THREE.Group();
+
+
+            scene.add(globe);
+
+
+            /* =====================================
+               DOT GLOBE
+            ===================================== */
+
+            const radius = 1.45;
+
+            const points = [];
+
+            const amount = 8500;
+
+
+            for (
+                let i = 0;
+                i < amount;
+                i++
+            ) {
+
+                const phi =
+                    Math.acos(
+
+                        1 -
+
+                        2 *
+                        (i + 0.5) /
+                        amount
+
+                    );
+
+
+                const theta =
+                    Math.PI *
+                    (1 + Math.sqrt(5)) *
+                    i;
+
+
+                const x =
+                    radius *
+                    Math.sin(phi) *
+                    Math.cos(theta);
+
+
+                const y =
+                    radius *
+                    Math.cos(phi);
+
+
+                const z =
+                    radius *
+                    Math.sin(phi) *
+                    Math.sin(theta);
+
+
+                points.push(
+                    x,
+                    y,
+                    z
+                );
+
+            }
+
+
+            const geometry =
+                new THREE.BufferGeometry();
+
+
+            geometry.setAttribute(
+
+                "position",
+
+                new THREE.Float32BufferAttribute(
+                    points,
+                    3
+                )
+
+            );
+
+
+            const material =
+                new THREE.PointsMaterial({
+
+                    color:
+                        0x38bdf8,
+
+                    size:
+                        0.012,
+
+                    transparent:
+                        true,
+
+                    opacity:
+                        .85,
+
+                    blending:
+                        THREE.AdditiveBlending,
+
+                    depthWrite:
+                        false
+
+                });
+
+
+            const earth =
+                new THREE.Points(
+
+                    geometry,
+
+                    material
+
+                );
+
+
+            globe.add(earth);
+
+
+            /* =====================================
+               DARK INNER CORE
+            ===================================== */
+
+            const coreGeometry =
+                new THREE.SphereGeometry(
+
+                    radius * .965,
+
+                    64,
+
+                    64
+
+                );
+
+
+            const coreMaterial =
+                new THREE.MeshBasicMaterial({
+
+                    color:
+                        0x020617,
+
+                    transparent:
+                        true,
+
+                    opacity:
+                        .97
+
+                });
+
+
+            const core =
+                new THREE.Mesh(
+
+                    coreGeometry,
+
+                    coreMaterial
+
+                );
+
+
+            globe.add(core);
+
+
+            /* =====================================
+               ATMOSPHERE
+            ===================================== */
+
+            const atmosphereGeometry =
+                new THREE.SphereGeometry(
+
+                    radius * 1.06,
+
+                    64,
+
+                    64
+
+                );
+
+
+            const atmosphereMaterial =
+                new THREE.MeshBasicMaterial({
+
+                    color:
+                        0x38bdf8,
+
+                    transparent:
+                        true,
+
+                    opacity:
+                        .035,
+
+                    side:
+                        THREE.BackSide,
+
+                    blending:
+                        THREE.AdditiveBlending
+
+                });
+
+
+            const atmosphere =
+                new THREE.Mesh(
+
+                    atmosphereGeometry,
+
+                    atmosphereMaterial
+
+                );
+
+
+            globe.add(atmosphere);
+
+
+            /* =====================================
+               EQUATOR RING
+            ===================================== */
+
+            const ringGeometry =
+                new THREE.TorusGeometry(
+
+                    radius * 1.02,
+
+                    0.008,
+
+                    16,
+
+                    180
+
+                );
+
+
+            const ringMaterial =
+                new THREE.MeshBasicMaterial({
+
+                    color:
+                        0x38bdf8,
+
+                    transparent:
+                        true,
+
+                    opacity:
+                        .35,
+
+                    blending:
+                        THREE.AdditiveBlending
+
+                });
+
+
+            const ring =
+                new THREE.Mesh(
+
+                    ringGeometry,
+
+                    ringMaterial
+
+                );
+
+
+            ring.rotation.x =
+                Math.PI / 2.7;
+
+
+            globe.add(ring);
+
+
+            /* =====================================
+               SECOND ORBIT
+            ===================================== */
+
+            const orbitGeometry =
+                new THREE.TorusGeometry(
+
+                    radius * 1.18,
+
+                    0.004,
+
+                    12,
+
+                    180
+
+                );
+
+
+            const orbitMaterial =
+                new THREE.MeshBasicMaterial({
+
+                    color:
+                        0x7dd3fc,
+
+                    transparent:
+                        true,
+
+                    opacity:
+                        .18,
+
+                    blending:
+                        THREE.AdditiveBlending
+
+                });
+
+
+            const orbit =
+                new THREE.Mesh(
+
+                    orbitGeometry,
+
+                    orbitMaterial
+
+                );
+
+
+            orbit.rotation.x =
+                Math.PI / 3;
+
+
+            orbit.rotation.z =
+                Math.PI / 6;
+
+
+            globe.add(orbit);
+
+
+            /* =====================================
+               OUTER GLOW
+            ===================================== */
+
+            const glowGeometry =
+                new THREE.SphereGeometry(
+
+                    radius * 1.35,
+
+                    32,
+
+                    32
+
+                );
+
+
+            const glowMaterial =
+                new THREE.MeshBasicMaterial({
+
+                    color:
+                        0x0ea5e9,
+
+                    transparent:
+                        true,
+
+                    opacity:
+                        .025,
+
+                    side:
+                        THREE.BackSide,
+
+                    blending:
+                        THREE.AdditiveBlending
+
+                });
+
+
+            const glow =
+                new THREE.Mesh(
+
+                    glowGeometry,
+
+                    glowMaterial
+
+                );
+
+
+            globe.add(glow);
+
+
+            /* =====================================
+               MOUSE
+            ===================================== */
+
+            let mouseX = 0;
+
+            let mouseY = 0;
+
+
+            let targetX = 0;
+
+            let targetY = 0;
+
+
+            window.addEventListener(
+
+                "mousemove",
+
+                event => {
+
+                    mouseX =
+
+                        event.clientX /
+                        window.innerWidth -
+                        .5;
+
+
+                    mouseY =
+
+                        event.clientY /
+                        window.innerHeight -
+                        .5;
+
+                }
+
+            );
+
+
+            /* =====================================
+               TOUCH
+            ===================================== */
+
+            window.addEventListener(
+
+                "touchmove",
+
+                event => {
+
+                    if (
+                        !event.touches.length
+                    )
+                        return;
+
+
+                    mouseX =
+
+                        event.touches[0].clientX /
+                        window.innerWidth -
+                        .5;
+
+
+                    mouseY =
+
+                        event.touches[0].clientY /
+                        window.innerHeight -
+                        .5;
+
+                },
+
+                {
+                    passive: true
+                }
+
+            );
+
+
+            /* =====================================
+               RESIZE
+            ===================================== */
+
+            function resizeGlobe() {
+
+                const width =
+                    wrapper.clientWidth;
+
+
+                const height =
+                    wrapper.clientHeight;
+
+
+                camera.aspect =
+                    width / height;
+
+
+                camera.updateProjectionMatrix();
+
+
+                renderer.setSize(
+
+                    width,
+
+                    height
+
+                );
+
+
+                renderer.setPixelRatio(
+
+                    Math.min(
+                        window.devicePixelRatio,
+                        2
+                    )
+
+                );
+
+            }
+
+
+            window.addEventListener(
+                "resize",
+                resizeGlobe
+            );
+
+
+            /* =====================================
+               ANIMATION
+            ===================================== */
+
+            function animate() {
+
+                requestAnimationFrame(
+                    animate
+                );
+
+
+                /* Automatic rotation */
+
+                globe.rotation.y +=
+                    0.0018;
+
+
+                /* Mouse influence */
+
+                targetX =
+                    mouseX * .35;
+
+
+                targetY =
+                    mouseY * .18;
+
+
+                globe.rotation.x +=
+
+                    (
+                        targetY -
+                        globe.rotation.x
+                    ) * .008;
+
+
+                /*
+                    Only add mouse movement
+                    subtly so automatic
+                    rotation remains visible.
+                */
+
+                globe.rotation.y +=
+
+                    (
+                        targetX -
+                        0
+                    ) * .00015;
+
+
+                /* Rings */
+
+                ring.rotation.z +=
+                    .002;
+
+
+                orbit.rotation.y +=
+                    .001;
+
+
+                orbit.rotation.z -=
+                    .0007;
+
+
+                renderer.render(
+
+                    scene,
+
+                    camera
+
+                );
+
+            }
+
+
+            resizeGlobe();
+
+            animate();
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

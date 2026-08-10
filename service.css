@@ -1,0 +1,1228 @@
+/* =====================================
+   ELORA FUTURISTIC SERVICES PAGE
+   AI Hologram Design
+===================================== */
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+
+body{
+
+    background:#020617;
+
+    color:white;
+
+    overflow-x:hidden;
+
+}
+
+
+
+/* =====================================
+   AI GRID BACKGROUND
+===================================== */
+
+
+.ai-grid{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-2;
+
+
+    background:
+
+    linear-gradient(
+    rgba(0,198,255,.08) 1px,
+    transparent 1px
+    ),
+
+    linear-gradient(
+    90deg,
+    rgba(0,198,255,.08) 1px,
+    transparent 1px
+    );
+
+
+    background-size:70px 70px;
+
+
+    animation:gridMove 20s linear infinite;
+
+
+}
+
+
+
+.ai-grid::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+
+    background:
+
+    radial-gradient(
+    circle at center,
+    transparent,
+    #020617 75%
+    );
+
+}
+
+
+
+@keyframes gridMove{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(70px);
+
+}
+
+}
+
+
+
+
+
+/* =====================================
+   NAVBAR
+===================================== */
+
+
+header{
+
+    position:fixed;
+
+    top:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    padding:20px 0;
+
+}
+
+
+
+.navbar{
+
+    width:90%;
+
+    max-width:1300px;
+
+    margin:auto;
+
+    height:75px;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+
+    padding:0 35px;
+
+
+    background:
+
+    rgba(255,255,255,.06);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.12);
+
+
+    backdrop-filter:blur(25px);
+
+
+    border-radius:30px;
+
+}
+
+
+
+.logo{
+
+    font-size:35px;
+
+    font-weight:800;
+
+    letter-spacing:7px;
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    white,
+    #00c6ff
+    );
+
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+}
+
+
+
+.nav-links{
+
+    display:flex;
+
+    gap:40px;
+
+    list-style:none;
+
+}
+
+
+
+.nav-links a{
+
+    color:#cbd5e1;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+
+
+.nav-links a:hover,
+.nav-links .active{
+
+    color:#00c6ff;
+
+}
+
+
+
+.join-btn{
+
+    padding:13px 30px;
+
+    border-radius:50px;
+
+
+    background:#00c6ff;
+
+    color:#00111f;
+
+
+    font-weight:700;
+
+    text-decoration:none;
+
+
+    box-shadow:
+
+    0 0 30px #00c6ff;
+
+
+}
+
+
+
+
+
+/* =====================================
+   HERO SECTION
+===================================== */
+
+
+.service-hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+
+    width:90%;
+
+    max-width:1300px;
+
+    margin:auto;
+
+
+}
+
+
+
+.hero-content{
+
+    max-width:650px;
+
+}
+
+
+
+.hero-content span{
+
+    color:#00c6ff;
+
+    letter-spacing:5px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+
+
+.hero-content h1{
+
+    font-size:70px;
+
+    line-height:1.1;
+
+    margin:25px 0;
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    white,
+    #38bdf8
+    );
+
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+}
+
+
+
+.hero-content p{
+
+    font-size:20px;
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+}
+
+
+
+.hero-btn{
+
+    display:inline-block;
+
+    margin-top:40px;
+
+    padding:16px 40px;
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #00c6ff,
+    #38bdf8
+    );
+
+
+    color:#00111f;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+
+}
+
+
+
+/* =====================================
+   HOLOGRAM AI CORE
+===================================== */
+
+
+.hologram{
+
+    position:relative;
+
+    width:450px;
+
+    height:450px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+
+.core{
+
+    width:140px;
+
+    height:140px;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    border-radius:50%;
+
+
+    background:
+
+    radial-gradient(
+    circle,
+    #38bdf8,
+    #0066ff
+    );
+
+
+    box-shadow:
+
+    0 0 80px #00c6ff;
+
+
+    animation:pulse 3s infinite;
+
+}
+
+
+
+.core i{
+
+    font-size:60px;
+
+}
+
+
+
+
+
+.ring{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:2px solid rgba(0,198,255,.5);
+
+}
+
+
+
+.ring1{
+
+    width:230px;
+
+    height:230px;
+
+    animation:rotate 8s linear infinite;
+
+}
+
+
+.ring2{
+
+    width:330px;
+
+    height:330px;
+
+    border-style:dashed;
+
+    animation:rotate 15s linear infinite reverse;
+
+}
+
+
+
+.ring3{
+
+    width:430px;
+
+    height:430px;
+
+    animation:rotate 25s linear infinite;
+
+}
+
+
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.1);
+
+}
+
+}
+
+
+
+@keyframes rotate{
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
+
+
+
+/* =====================================
+   SERVICES CARDS
+===================================== */
+
+
+.services{
+
+    padding:120px 5%;
+
+}
+
+
+
+.services h2,
+.future h2{
+
+    text-align:center;
+
+    font-size:45px;
+
+    margin-bottom:60px;
+
+}
+
+
+
+.service-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+
+
+.service-card{
+
+    padding:40px;
+
+
+    border-radius:30px;
+
+
+    background:
+
+    rgba(255,255,255,.06);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.12);
+
+
+    backdrop-filter:blur(20px);
+
+
+    transition:.4s;
+
+
+}
+
+
+
+.service-card:hover{
+
+    transform:
+
+    translateY(-15px);
+
+
+    border-color:#00c6ff;
+
+
+    box-shadow:
+
+    0 0 50px rgba(0,198,255,.25);
+
+}
+
+
+
+.service-card i{
+
+    font-size:45px;
+
+    color:#00c6ff;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.service-card h3{
+
+    font-size:25px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+/* =====================================
+   PROCESS
+===================================== */
+
+
+.future{
+
+    padding:100px 5%;
+
+}
+
+
+
+.steps{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:40px;
+
+}
+
+
+
+.steps div{
+
+    width:180px;
+
+    height:180px;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    text-align:center;
+
+
+    border-radius:50%;
+
+
+    background:
+
+    rgba(0,198,255,.1);
+
+
+    border:
+
+    1px solid #00c6ff;
+
+
+    font-size:22px;
+
+
+    box-shadow:
+
+    0 0 40px rgba(0,198,255,.2);
+
+}
+
+
+
+
+
+/* =====================================
+   CTA
+===================================== */
+
+
+.cta{
+
+    text-align:center;
+
+    padding:120px 20px;
+
+
+    background:
+
+    radial-gradient(
+    circle,
+    rgba(0,198,255,.25),
+    transparent 60%
+    );
+
+}
+
+
+
+.cta a{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:16px 45px;
+
+    border-radius:50px;
+
+
+    background:#00c6ff;
+
+    color:#00111f;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+}
+
+
+
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+
+footer{
+
+    text-align:center;
+
+    padding:60px;
+
+    background:#01030a;
+
+}
+
+
+
+/* =====================================
+MOBILE NAVIGATION
+===================================== */
+
+.menu-btn {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    border-radius: 10px;
+
+    transition: .3s;
+}
+
+.menu-btn:hover {
+    background: rgba(0, 198, 255, .1);
+    color: #00c6ff;
+}
+
+
+/* =====================================
+TABLET
+===================================== */
+
+@media (max-width: 1000px) {
+
+    .menu-btn {
+        display: flex;
+    }
+
+    .navbar > .join-btn {
+        display: none;
+    }
+
+    .nav-links {
+
+        position: absolute;
+
+        top: calc(100% + 10px);
+
+        left: 0;
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        padding: 10px;
+
+        margin: 0;
+
+        background:
+            rgba(2, 6, 23, .96);
+
+        border:
+            1px solid rgba(255, 255, 255, .12);
+
+        border-radius: 22px;
+
+        backdrop-filter: blur(25px);
+
+        -webkit-backdrop-filter: blur(25px);
+
+        box-shadow:
+            0 20px 50px rgba(0, 0, 0, .5);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform: translateY(-15px);
+
+        pointer-events: none;
+
+        transition:
+            opacity .3s ease,
+            transform .3s ease,
+            visibility .3s ease;
+
+        z-index: 1001;
+    }
+
+    /* JS TOGGLES THIS CLASS */
+
+    .nav-links.active {
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: translateY(0);
+
+        pointer-events: auto;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+
+        display: block;
+
+        width: 100%;
+
+        padding: 14px 18px;
+
+        border-radius: 14px;
+
+        color: #cbd5e1;
+
+        transition: .25s;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+
+        color: white;
+
+        background:
+            rgba(0, 198, 255, .1);
+
+        text-shadow:
+            0 0 15px #00c6ff;
+    }
+
+
+    /* HERO */
+
+    .service-hero {
+
+        flex-direction: column;
+
+        padding-top: 150px;
+
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 45px;
+    }
+
+
+    /* HOLOGRAM */
+
+    .hologram {
+
+        margin-top: 50px;
+
+        width: 330px;
+
+        height: 330px;
+    }
+
+
+    .service-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .steps {
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+}
+
+
+/* =====================================
+MOBILE
+===================================== */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 10px 0;
+    }
+
+    .navbar {
+
+        width: 96%;
+
+        height: 62px;
+
+        padding: 0 15px;
+
+        border-radius: 20px;
+    }
+
+    .logo {
+
+        font-size: 21px;
+
+        letter-spacing: 4px;
+    }
+
+    .menu-btn {
+
+        width: 40px;
+
+        height: 40px;
+
+        font-size: 20px;
+    }
+
+    .nav-links {
+
+        top: calc(100% + 8px);
+
+        border-radius: 18px;
+    }
+
+    .nav-links a {
+
+        padding: 13px 15px;
+
+        font-size: 14px;
+    }
+
+
+    /* HERO */
+
+    .service-hero {
+
+        width: 92%;
+
+        min-height: auto;
+
+        padding-top: 130px;
+
+        padding-bottom: 80px;
+    }
+
+    .hero-content span {
+
+        font-size: 11px;
+
+        letter-spacing: 3px;
+    }
+
+    .hero-content h1 {
+
+        font-size: 40px;
+
+        line-height: 1.1;
+
+        margin: 20px 0;
+    }
+
+    .hero-content p {
+
+        font-size: 16px;
+
+        line-height: 1.7;
+    }
+
+    .hero-btn {
+
+        padding: 14px 30px;
+
+        margin-top: 30px;
+    }
+
+
+    /* HOLOGRAM */
+
+    .hologram {
+
+        width: 280px;
+
+        height: 280px;
+
+        margin-top: 40px;
+    }
+
+    .core {
+
+        width: 100px;
+
+        height: 100px;
+    }
+
+    .core i {
+
+        font-size: 42px;
+    }
+
+    .ring1 {
+
+        width: 160px;
+
+        height: 160px;
+    }
+
+    .ring2 {
+
+        width: 220px;
+
+        height: 220px;
+    }
+
+    .ring3 {
+
+        width: 280px;
+
+        height: 280px;
+    }
+
+
+    /* SERVICES */
+
+    .services {
+
+        padding: 80px 5%;
+    }
+
+    .services h2,
+    .future h2 {
+
+        font-size: 32px;
+
+        margin-bottom: 40px;
+    }
+
+    .service-card {
+
+        padding: 28px;
+
+        border-radius: 22px;
+    }
+
+    .service-card h3 {
+
+        font-size: 21px;
+    }
+
+    .service-card i {
+
+        font-size: 38px;
+    }
+
+
+    /* PROCESS */
+
+    .future {
+
+        padding: 80px 5%;
+    }
+
+    .steps div {
+
+        width: 150px;
+
+        height: 150px;
+
+        font-size: 19px;
+    }
+
+
+    /* CTA */
+
+    .cta {
+
+        padding: 80px 20px;
+    }
+
+    .cta h2 {
+
+        font-size: 30px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+
+        padding: 45px 20px;
+    }
+
+}
+
+
+/* =====================================
+VERY SMALL PHONES
+===================================== */
+
+@media (max-width: 400px) {
+
+    .navbar {
+
+        width: 97%;
+
+        padding: 0 10px;
+    }
+
+    .logo {
+
+        font-size: 18px;
+
+        letter-spacing: 3px;
+    }
+
+    .hero-content h1 {
+
+        font-size: 34px;
+    }
+
+    .hero-content p {
+
+        font-size: 14px;
+    }
+
+    .hologram {
+
+        width: 250px;
+
+        height: 250px;
+    }
+
+    .ring1 {
+
+        width: 140px;
+
+        height: 140px;
+    }
+
+    .ring2 {
+
+        width: 195px;
+
+        height: 195px;
+    }
+
+    .ring3 {
+
+        width: 250px;
+
+        height: 250px;
+    }
+
+    .core {
+
+        width: 90px;
+
+        height: 90px;
+    }
+
+    .core i {
+
+        font-size: 36px;
+    }
+
+}

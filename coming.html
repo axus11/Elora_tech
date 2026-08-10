@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ELORA Tech | Coming Soon</title>
+
+    <meta name="description"
+          content="ELORA Tech — Logical Architecture for Global Solutions. Something extraordinary is coming.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #020617;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        /* =========================================
+           BACKGROUND
+        ========================================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 50% 40%,
+                    rgba(0, 198, 255, 0.12),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 15% 85%,
+                    rgba(37, 99, 235, 0.12),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 10%,
+                    rgba(14, 165, 233, 0.08),
+                    transparent 30%
+                ),
+                #020617;
+        }
+
+        /* Grid */
+
+        .grid {
+            position: absolute;
+            inset: -100%;
+            width: 300%;
+            height: 300%;
+
+            background-image:
+                linear-gradient(
+                    rgba(56, 189, 248, 0.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(56, 189, 248, 0.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 70px 70px;
+
+            transform: perspective(500px) rotateX(60deg);
+
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            from {
+                transform:
+                    perspective(500px)
+                    rotateX(60deg)
+                    translateY(0);
+            }
+
+            to {
+                transform:
+                    perspective(500px)
+                    rotateX(60deg)
+                    translateY(70px);
+            }
+        }
+
+        /* =========================================
+           GLOWING ORBS
+        ========================================= */
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            pointer-events: none;
+        }
+
+        .orb.one {
+            width: 400px;
+            height: 400px;
+            background: rgba(0, 198, 255, 0.12);
+            top: -150px;
+            left: -120px;
+            animation: orbOne 12s ease-in-out infinite alternate;
+        }
+
+        .orb.two {
+            width: 500px;
+            height: 500px;
+            background: rgba(37, 99, 235, 0.10);
+            bottom: -250px;
+            right: -180px;
+            animation: orbTwo 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes orbOne {
+            to {
+                transform: translate(180px, 150px);
+            }
+        }
+
+        @keyframes orbTwo {
+            to {
+                transform: translate(-150px, -120px);
+            }
+        }
+
+        /* =========================================
+           PARTICLES
+        ========================================= */
+
+        .particles {
+            position: absolute;
+            inset: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #7dd3fc;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #38bdf8;
+            animation: floatParticle linear infinite;
+        }
+
+        @keyframes floatParticle {
+            from {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+
+        /* =========================================
+           MAIN
+        ========================================= */
+
+        .page {
+            position: relative;
+            z-index: 10;
+
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .logo {
+            position: absolute;
+            top: 35px;
+            left: 50px;
+
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: 7px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #7dd3fc,
+                    #38bdf8
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .logo::after {
+            content: "";
+            display: block;
+
+            width: 28px;
+            height: 2px;
+
+            margin-top: 5px;
+
+            background: #38bdf8;
+
+            box-shadow:
+                0 0 12px #38bdf8,
+                0 0 25px #38bdf8;
+        }
+
+        /* =========================================
+           STATUS
+        ========================================= */
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 9px 18px;
+
+            border: 1px solid rgba(56, 189, 248, 0.2);
+
+            border-radius: 50px;
+
+            background: rgba(255, 255, 255, 0.035);
+
+            backdrop-filter: blur(15px);
+
+            color: #7dd3fc;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-bottom: 28px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #38bdf8;
+
+            box-shadow:
+                0 0 10px #38bdf8,
+                0 0 20px #38bdf8;
+
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.7);
+                opacity: 0.5;
+            }
+        }
+
+        /* =========================================
+           TITLE
+        ========================================= */
+
+        h1 {
+            max-width: 1000px;
+
+            font-size: clamp(55px, 8vw, 110px);
+
+            line-height: 0.95;
+
+            font-weight: 800;
+
+            letter-spacing: -5px;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #ffffff 15%,
+                    #bae6fd 45%,
+                    #38bdf8 75%,
+                    #0284c7
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+            text-shadow:
+                0 0 60px rgba(56, 189, 248, 0.08);
+        }
+
+        .subtitle {
+            margin-top: 28px;
+
+            max-width: 650px;
+
+            color: #94a3b8;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+        }
+
+        .subtitle strong {
+            color: #e2e8f0;
+        }
+
+        /* =========================================
+           COUNTDOWN
+        ========================================= */
+
+        .countdown {
+            display: flex;
+            gap: 18px;
+
+            margin-top: 45px;
+        }
+
+        .time-box {
+            min-width: 105px;
+
+            padding: 18px 15px;
+
+            border-radius: 18px;
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.07),
+                    rgba(255, 255, 255, 0.02)
+                );
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.05),
+                0 15px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .number {
+            display: block;
+
+            font-size: 30px;
+
+            font-weight: 700;
+
+            color: #f8fafc;
+        }
+
+        .label {
+            display: block;
+
+            margin-top: 5px;
+
+            color: #64748b;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .cta {
+            display: flex;
+            gap: 12px;
+
+            margin-top: 42px;
+        }
+
+        .btn {
+            position: relative;
+
+            padding: 14px 25px;
+
+            border-radius: 50px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            text-decoration: none;
+
+            transition: 0.35s;
+
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            color: #020617;
+
+            background: #f8fafc;
+
+            box-shadow:
+                0 0 25px rgba(255, 255, 255, 0.12);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 40px rgba(56, 189, 248, 0.25);
+        }
+
+        .btn-secondary {
+            color: #cbd5e1;
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            background: rgba(255, 255, 255, 0.035);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+
+            border-color: rgba(56, 189, 248, 0.4);
+
+            color: #ffffff;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            position: absolute;
+
+            bottom: 25px;
+
+            color: #475569;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+        }
+
+        footer span {
+            color: #38bdf8;
+        }
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .logo {
+                top: 25px;
+                left: 25px;
+                font-size: 20px;
+            }
+
+            h1 {
+                letter-spacing: -3px;
+            }
+
+            .subtitle {
+                font-size: 15px;
+            }
+
+            .countdown {
+                gap: 7px;
+            }
+
+            .time-box {
+                min-width: 70px;
+                padding: 13px 8px;
+                border-radius: 12px;
+            }
+
+            .number {
+                font-size: 22px;
+            }
+
+            .label {
+                font-size: 7px;
+                letter-spacing: 1px;
+            }
+
+            .cta {
+                flex-direction: column;
+                width: 100%;
+                max-width: 260px;
+            }
+
+            .btn {
+                text-align: center;
+            }
+
+            footer {
+                bottom: 15px;
+                font-size: 8px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+
+    <div class="background">
+
+        <div class="grid"></div>
+
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+
+        <div class="particles" id="particles"></div>
+
+    </div>
+
+
+    <!-- MAIN PAGE -->
+
+    <main class="page">
+
+        <div class="logo">
+            ELORA
+        </div>
+
+
+        <div class="status">
+            <span class="status-dot"></span>
+            System Initialization
+        </div>
+
+
+        <h1>
+            Something<br>
+            Extraordinary<br>
+            Is Coming.
+        </h1>
+
+
+        <p class="subtitle">
+            <strong>ELORA Tech</strong> is building the next generation
+            of intelligent technology — where logical architecture
+            meets global solutions.
+        </p>
+
+
+        <!-- COUNTDOWN -->
+
+        <div class="countdown">
+
+            <div class="time-box">
+                <span class="number" id="days">00</span>
+                <span class="label">Days</span>
+            </div>
+
+            <div class="time-box">
+                <span class="number" id="hours">00</span>
+                <span class="label">Hours</span>
+            </div>
+
+            <div class="time-box">
+                <span class="number" id="minutes">00</span>
+                <span class="label">Minutes</span>
+            </div>
+
+            <div class="time-box">
+                <span class="number" id="seconds">00</span>
+                <span class="label">Seconds</span>
+            </div>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="cta">
+
+            <a href="mailto:hello@eloratech.com"
+               class="btn btn-primary">
+                Contact ELORA
+            </a>
+
+            <a href="#"
+               class="btn btn-secondary">
+                Stay Tuned
+            </a>
+
+        </div>
+
+
+        <footer>
+            © 2026 <span>ELORA TECH</span> · LOGICAL ARCHITECTURE FOR GLOBAL SOLUTIONS
+        </footer>
+
+    </main>
+
+
+    <script>
+
+        /* =========================================
+           PARTICLES
+        ========================================= */
+
+        const particles =
+            document.getElementById("particles");
+
+        for (let i = 0; i < 90; i++) {
+
+            const particle =
+                document.createElement("span");
+
+            particle.className = "particle";
+
+            particle.style.left =
+                Math.random() * 100 + "%";
+
+            particle.style.animationDuration =
+                (8 + Math.random() * 15) + "s";
+
+            particle.style.animationDelay =
+                Math.random() * 10 + "s";
+
+            const size =
+                Math.random() * 2 + 1;
+
+            particle.style.width = size + "px";
+            particle.style.height = size + "px";
+
+            particles.appendChild(particle);
+        }
+
+
+        /* =========================================
+           COUNTDOWN
+           
+           Change this date to your launch date.
+        ========================================= */
+
+        const launchDate =
+            new Date("December 31, 2026 23:59:59").getTime();
+
+
+        function updateCountdown() {
+
+            const now =
+                new Date().getTime();
+
+            const distance =
+                launchDate - now;
+
+
+            if (distance <= 0) {
+
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+
+                return;
+            }
+
+
+            const days =
+                Math.floor(
+                    distance /
+                    (1000 * 60 * 60 * 24)
+                );
+
+            const hours =
+                Math.floor(
+                    (distance %
+                        (1000 * 60 * 60 * 24)) /
+                    (1000 * 60 * 60)
+                );
+
+            const minutes =
+                Math.floor(
+                    (distance %
+                        (1000 * 60 * 60)) /
+                    (1000 * 60)
+                );
+
+            const seconds =
+                Math.floor(
+                    (distance %
+                        (1000 * 60)) /
+                    1000
+                );
+
+
+            document.getElementById("days").innerText =
+                String(days).padStart(2, "0");
+
+            document.getElementById("hours").innerText =
+                String(hours).padStart(2, "0");
+
+            document.getElementById("minutes").innerText =
+                String(minutes).padStart(2, "0");
+
+            document.getElementById("seconds").innerText =
+                String(seconds).padStart(2, "0");
+        }
+
+
+        updateCountdown();
+
+        setInterval(updateCountdown, 1000);
+
+    </script>
+
+</body>
+</html>
+
