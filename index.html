@@ -538,7 +538,190 @@
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
     <script src="script.js"></script>
+<!-- =====================================================
+     ELORA AI CHATBOT
+===================================================== -->
 
+<div class="elora-ai-widget">
+
+    <!-- Floating Button -->
+    <button
+        id="elora-ai-button"
+        class="elora-ai-button"
+        aria-label="Open ELORA AI"
+        type="button">
+
+        <span class="ai-pulse"></span>
+
+        <i class="fas fa-robot"></i>
+
+    </button>
+
+
+    <!-- Chat Window -->
+    <div
+        id="elora-ai-chat"
+        class="elora-ai-chat"
+        aria-hidden="true">
+
+
+        <!-- HEADER -->
+
+        <div class="elora-ai-header">
+
+            <div class="elora-ai-brand">
+
+                <div class="elora-ai-avatar">
+
+                    <i class="fas fa-robot"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>ELORA AI</h3>
+
+                    <span>
+                        <span class="online-dot"></span>
+                        Online
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="elora-ai-close"
+                class="elora-ai-close"
+                aria-label="Close chatbot"
+                type="button">
+
+                <i class="fas fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- CHAT MESSAGES -->
+
+        <div
+            id="elora-ai-messages"
+            class="elora-ai-messages">
+
+            <div class="ai-message">
+
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+
+                <div class="message-content">
+
+                    <p>
+                        Hello 👋 I'm <strong>ELORA AI</strong>.
+                    </p>
+
+                    <p>
+                        I'm here to help you explore
+                        ELORA Tech, our services,
+                        projects and mission.
+                    </p>
+
+                    <span class="message-time">
+                        Just now
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK QUESTIONS -->
+
+            <div class="ai-quick-actions">
+
+                <button data-question="What is ELORA Tech?">
+                    What is ELORA?
+                </button>
+
+                <button data-question="What services does ELORA provide?">
+                    Our services
+                </button>
+
+                <button data-question="What is ELORA's mission?">
+                    Our mission
+                </button>
+
+                <button data-question="How can I join ELORA?">
+                    Join ELORA
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- TYPING INDICATOR -->
+
+        <div
+            id="elora-ai-typing"
+            class="elora-ai-typing">
+
+            <div class="typing-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+
+            <div class="typing-dots">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+
+        <!-- INPUT -->
+
+        <div class="elora-ai-input-area">
+
+            <input
+                id="elora-ai-input"
+                type="text"
+                placeholder="Ask ELORA AI..."
+                autocomplete="off"
+                maxlength="500">
+
+            <button
+                id="elora-ai-send"
+                type="button"
+                aria-label="Send message">
+
+                <i class="fas fa-paper-plane"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="elora-ai-footer">
+
+            <span>
+                Powered by ELORA Tech
+            </span>
+
+            <span>
+                AI Assistant
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+<script src="elora-ai.js"></script>
 </body>
 
 </html>
