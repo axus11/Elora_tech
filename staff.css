@@ -4920,3 +4920,22 @@ display:none;
     transform: none;
   }
 }
+
+/* REMOVE RAINBOW FROM BIRUK'S PHOTO ONLY */
+
+.king-card .king-portrait {
+    background: #00f5ff !important;
+    animation: none !important;
+
+    box-shadow:
+        0 0 0 4px rgba(0, 245, 255, 0.12),
+        0 0 22px rgba(0, 245, 255, 0.25) !important;
+}
+
+.king-card .king-portrait img {
+    border-color: #100a2b !important;
+    filter: none !important;
+    animation: none !important;
+    transform: none;
+}
+
